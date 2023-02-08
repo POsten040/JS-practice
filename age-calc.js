@@ -1,22 +1,3 @@
-class PlanetAgeCON {
-  constructor(userAge){
-    let conversions = {
-      mercury: .24,
-      venus: .62,
-      mars: 1.88,
-      jupiter: 11.86
-    }
-    this.ageOn = Object.values(conversions).map((con) => {
-      return userAge * con;
-    })
-    this.expectancy = Object.values(conversions).map((con) => {
-      let age = userAge * con;
-      let exp = (80*con) - age;
-      return exp;
-    })
-  }
-  //no methods
-}
 
 class PlanetAgeMETHOD {
   constructor(userAge) {
@@ -51,14 +32,27 @@ class PlanetAgeMETHOD {
     this.expectancyOn[planet] = (this.expectancy * this.conversions[planet]) - this.ageOn[planet];
   }
   addPlanet(planet, conversionRate){
-    this.conversions[planet] = conversionRate;
+      this.conversions[planet] = conversionRate;
+    }
   }
-}
-const pat = new PlanetAgeCON(32);
-const patMethod = new PlanetAgeMETHOD(32)
-
-console.log(patMethod)
-patMethod.calcExp('mars')
-patMethod.addPlanet('kevin', .44)
-patMethod.calcExp('kevin')
-console.log(patMethod)
+  
+  
+  class PlanetAgeCON {
+    constructor(userAge){
+      let conversions = {
+        mercury: .24,
+        venus: .62,
+        mars: 1.88,
+        jupiter: 11.86
+      }
+      this.ageOn = Object.values(conversions).map((con) => {
+        return userAge * con;
+      })
+      this.expectancy = Object.values(conversions).map((con) => {
+        let age = userAge * con;
+        let exp = (80*con) - age;
+        return exp;
+      })
+    }
+    //no methods
+  }

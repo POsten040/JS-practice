@@ -24,7 +24,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/spiral-matrix.js"
+      "program": "${workspaceFolder}/longest-palindrome-substr.js"
     }
   ]
 }

@@ -36,20 +36,20 @@ var mergeTwoLists = function(list1, list2) {
   //if(!list1 || !list2) return new ListNode()
   let n1 = l1.head;
   let n2 = l2.head;
-  let final = []
-  while(n1 || n2){
+  let final = new ListNode()
+  while(n1 && n2){
     console.log(n1.value)
-    if(n1.value >= n2.value) {
-      final.push(n2.value)
-      final.push(n1.value)
-    } else {
-      final.push(n1.value)
-      final.push(n2.value)
+    if(n1.value > n2.value){
+      final.next = n1
+      n1= n1.next
+    } else if (n1.value < n2.value){
+      final.next = n2
+      n2 = n2.next
     }
-    n1 = n1.next;
-    n2 = n2.next;
   }
-  return arrayToList(final);
+  let r = n1 || n2
+  final.next = r
+  return final;
 };
 const arrayToList = (arr) => {
   return arr.reduceRight((prev, curr) => {
